@@ -62,37 +62,54 @@ class AppControl extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: false,
+            value: this.props.disabled,
         };
     }
     handleChange = event => {
         const { controlName } = this.props;
         this.setState({ value: event.target.checked });
-        this.props.controlAction(controlName, event.target.checked)
+        this.props.controlAction && this.props.controlAction(controlName, event.target.checked);
     };
     render() {
         const { classes } = this.props;
+        let thumpImg = null;
+        let description = null;
+        if (this.props.controlImage) {
+            thumpImg = (
+                <img className='app-control-content-img' alt='icon' src={this.props.controlImage} style={{ opacity: this.state.value ? "1" : "0.5" }} />
+            );
+        }
+        if (this.props.description) {
+            description = (
+                <div style={this.props.descStyle}>
+                    {this.props.description}
+                </div>
+            );
+        }
         return (
             <div class="content  card-group-control-right">
                 <div className="app-control-content" style={this.props.style}>
-                    <img className='app-control-content-img' alt='icon' src={this.props.controlImage} style={{ opacity: this.state.value ? "1" : "0.5" }} />
-                    <div className='app-control-content-detail'>
-                        <label className="app-control-label" >
+                    {thumpImg}
+                    <div className='app-control-content-detail' style={this.props.contentStyle}>
+                        <label className="app-control-label" style={this.props.labelStyle}>
                             {this.props.controlName}
                         </label>
-                        <Switch
-                            classes={{
-                                switchBase: classes.iOSSwitchBase,
-                                bar: classes.iOSBar,
-                                icon: classes.iOSIcon,
-                                iconChecked: classes.iOSIconChecked,
-                                checked: classes.iOSChecked,
-                            }}
-                            disableRipple
-                            disabled={this.props.disabled}
-                            onChange={this.handleChange}
-                            value={this.state.value}
-                        />
+                        <div style={{ display: this.props.hideSwitch ? "none" : "block" }}>
+                            <Switch
+                                classes={{
+                                    switchBase: classes.iOSSwitchBase,
+                                    bar: classes.iOSBar,
+                                    icon: classes.iOSIcon,
+                                    iconChecked: classes.iOSIconChecked,
+                                    checked: classes.iOSChecked,
+                                }}
+                                disableRipple
+                                disabled={this.props.disabled}
+                                onChange={this.handleChange}
+                                value={this.state.value}
+                            />
+                        </div>
+                        {description}
                     </div>
 
                 </div>

@@ -1,0 +1,22 @@
+.spotifySettings{
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    float: none;
+    
+}
+.textField input{
+    font-size: 16px;
+}
+.spotifyUserName{
+    margin-bottom: 5px !important;
+}
+.saveButton{
+    background: #33a554;
+    width: 30%;
+    border-radius: 20px;
+    color: #fff;
+    margin: 10px auto;
+    font-size: 14px;
+    text-transform: capitalize;
+}

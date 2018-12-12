@@ -10,6 +10,7 @@ import seating from '../Images/seating.png';
 import CustomControl from '../Components/CustomControl';
 import SyncDevices from '../SyncDevices/syncDevices';
 import SyncApps from '../SyncApps/SyncApps';
+import SyncAudio from '../SyncAudio/SyncAudio';
 
 const inlineStyles = {
     main: {
@@ -73,7 +74,17 @@ class Home extends Component {
         );
     }
     syncAudio() {
-        alert("audio");
+        return (
+            <SyncAudio
+                actionFooterLeft={"Apps"}
+                actionFooterRight={"Comfort"}
+                actionFooterLeftAction={this.setStateHandler.bind(this, 'syncApps')}
+                actionFooterRightAction={this.setStateHandler.bind(this, 'syncComfort')}
+            />
+        );
+    }
+    syncComfort() {
+        alert('syncComfort');
     }
     setStateHandler(state) {
         this.setState({
@@ -139,6 +150,7 @@ class Home extends Component {
                 {viewHandler === 'syncDevices' && this.syncDevices()}
                 {viewHandler === 'syncApps' && this.syncApps()}
                 {viewHandler === 'syncAudio' && this.syncAudio()}
+                {viewHandler === 'syncComfort' && this.syncComfort()}
 
             </div>
         );

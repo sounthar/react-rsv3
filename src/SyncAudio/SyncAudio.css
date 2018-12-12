@@ -1,0 +1,19 @@
+.internalNavBar{
+    display: flex;
+    margin: 30px auto;
+    width: 100%;
+    justify-content: center;
+}
+.navBtn{
+    padding: 15px;
+    color: #fff;
+    width: 10%;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+.navBtn-first{
+    border-radius: 50px 0px 0px 45px;
+}
+.navBtn-last{
+    border-radius: 0px 50px 45px 0px;
+}

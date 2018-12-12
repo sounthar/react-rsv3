@@ -26,7 +26,13 @@ const Strings = new LocalizedStrings({
             alexa: "Alexa",
             target: "Target",
             iHome: "iHome",
-            pandora: "Pandora"
+            pandora: "Pandora",
+            importPlayLists: "Import Playlists"
+        },
+        syncAudio: {
+            spotifyDesc: "Road trip set as your default playlist",
+            addMore: "Add More Apps",
+            addMoreText: "More music? Listion to an Audiobook?"
         }
     },
 
